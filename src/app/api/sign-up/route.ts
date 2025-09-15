@@ -43,6 +43,7 @@ export async function POST(request: Request) {
         existingUserByEmail.password = hashedPassword;
         existingUserByEmail.verifyCode = verifyCode;
         const expiryDate = new Date();
+        // console.log("current date", expiryDate);
         expiryDate.setHours(expiryDate.getHours() + 1);
         await existingUserByEmail.save();
       }
